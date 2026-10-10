@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SneakerStock.Views.RegisterPage"
+             Title="Registro"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource AppBackground}">
+
+    <Grid RowDefinitions="Auto,*" Padding="20" RowSpacing="18">
+
+        <Grid Grid.Row="0" ColumnDefinitions="Auto,*" ColumnSpacing="14">
+            <Button Grid.Column="0"
+                    Text="←"
+                    Style="{StaticResource StepButton}"
+                    VerticalOptions="Center"
+                    Clicked="OnBackClicked" />
+            <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                <Label Text="Crear cuenta"
+                       FontSize="26"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource Primary}" />
+                <Label Text="Regístrate para gestionar tu inventario"
+                       FontSize="14"
+                       TextColor="{StaticResource TextSecondary}" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout Spacing="16">
+
+                <Border Style="{StaticResource CardBorder}" Padding="20">
+                    <VerticalStackLayout Spacing="14">
+
+                        <Label Text="Datos personales"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Primary}" />
+
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                            <VerticalStackLayout Grid.Column="0" Spacing="6">
+                                <Label Text="Nombres"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource TextSecondary}" />
+                                <Border Style="{StaticResource FieldBorder}">
+                                    <Entry x:Name="FirstNameEntry"
+                                           Placeholder="Ej: Laura"
+                                           PlaceholderColor="{StaticResource TextSecondary}"
+                                           TextColor="{StaticResource Primary}"
+                                           BackgroundColor="Transparent"
+                                           VerticalOptions="Center" />
+                                </Border>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Grid.Column="1" Spacing="6">
+                                <Label Text="Apellidos"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource TextSecondary}" />
+                                <Border Style="{StaticResource FieldBorder}">
+                                    <Entry x:Name="LastNameEntry"
+                                           Placeholder="Ej: Gómez Rojas"
+                                           PlaceholderColor="{StaticResource TextSecondary}"
+                                           TextColor="{StaticResource Primary}"
+                                           BackgroundColor="Transparent"
+                                           VerticalOptions="Center" />
+                                </Border>
+                            </VerticalStackLayout>
+                        </Grid>
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Correo electrónico"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource TextSecondary}" />
+                            <Border Style="{StaticResource FieldBorder}">
+                                <Entry x:Name="EmailEntry"
+                                       Placeholder="nombre@correo.com"
+                                       Keyboard="Email"
+                                       PlaceholderColor="{StaticResource TextSecondary}"
+                                       TextColor="{StaticResource Primary}"
+                                       BackgroundColor="Transparent"
+                                       VerticalOptions="Center" />
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Teléfono"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource TextSecondary}" />
+                            <Border Style="{StaticResource FieldBorder}">
+                                <Entry x:Name="PhoneEntry"
+                                       Placeholder="Ej: 3001234567"
+                                       Keyboard="Telephone"
+                                       PlaceholderColor="{StaticResource TextSecondary}"
+                                       TextColor="{StaticResource Primary}"
+                                       BackgroundColor="Transparent"
+                                       VerticalOptions="Center" />
+                            </Border>
+                        </VerticalStackLayout>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Style="{StaticResource CardBorder}" Padding="20">
+                    <VerticalStackLayout Spacing="14">
+
+                        <Label Text="Tu negocio"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Primary}" />
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Nombre de la tienda"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource TextSecondary}" />
+                            <Border Style="{StaticResource FieldBorder}">
+                                <Entry x:Name="StoreEntry"
+                                       Placeholder="Ej: Sneaker House"
+                                       PlaceholderColor="{StaticResource TextSecondary}"
+                                       TextColor="{StaticResource Primary}"
+                                       BackgroundColor="Transparent"
+                                       VerticalOptions="Center" />
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Cargo"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource TextSecondary}" />
+                            <Border Style="{StaticResource FieldBorder}">
+                                <Picker x:Name="RolePicker"
+                                        Title="Selecciona tu cargo"
+                                        TitleColor="{StaticResource TextSecondary}"
+                                        TextColor="{StaticResource Primary}"
+                                        BackgroundColor="Transparent"
+                                        VerticalOptions="Center">
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>Administrador</x:String>
+                                            <x:String>Vendedor</x:String>
+                                            <x:String>Bodeguero</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </Border>
+                        </VerticalStackLayout>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Style="{StaticResource CardBorder}" Padding="20">
+                    <VerticalStackLayout Spacing="14">
+
+                        <Label Text="Seguridad"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Primary}" />
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Usuario"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource TextSecondary}" />
+                            <Border Style="{StaticResource FieldBorder}">
+                                <Entry x:Name="UsernameEntry"
+                                       Placeholder="Ej: laura.gomez"
+                                       IsSpellCheckEnabled="False"
+                                       IsTextPredictionEnabled="False"
+                                       PlaceholderColor="{StaticResource TextSecondary}"
+                                       TextColor="{StaticResource Primary}"
+                                       BackgroundColor="Transparent"
+                                       VerticalOptions="Center" />
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Contraseña"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource TextSecondary}" />
+                            <Border Style="{StaticResource FieldBorder}">
+                                <Grid ColumnDefinitions="*,36" ColumnSpacing="8">
+                                    <Entry x:Name="PasswordEntry"
+                                           Placeholder="Mínimo 6 caracteres"
+                                           PlaceholderColor="{StaticResource TextSecondary}"
+                                           TextColor="{StaticResource Primary}"
+                                           BackgroundColor="Transparent"
+                                           IsPassword="True"
+                                           VerticalOptions="Center" />
+                                    <ImageButton x:Name="EyeButton"
+                                                 Grid.Column="1"
+                                                 Source="ic_eye.png"
+                                                 WidthRequest="28" HeightRequest="28"
+                                                 Padding="2"
+                                                 Aspect="AspectFit"
+                                                 BackgroundColor="Transparent"
+                                                 HorizontalOptions="Center"
+                                                 VerticalOptions="Center"
+                                                 Clicked="OnTogglePasswordClicked" />
+                                </Grid>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Confirmar contraseña"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource TextSecondary}" />
+                            <Border Style="{StaticResource FieldBorder}">
+                                <Entry x:Name="ConfirmEntry"
+                                       Placeholder="Repite la contraseña"
+                                       PlaceholderColor="{StaticResource TextSecondary}"
+                                       TextColor="{StaticResource Primary}"
+                                       BackgroundColor="Transparent"
+                                       IsPassword="True"
+                                       VerticalOptions="Center" />
+                            </Border>
+                        </VerticalStackLayout>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <HorizontalStackLayout Spacing="6" Margin="4,0,0,0">
+                    <CheckBox x:Name="TermsCheck"
+                              Color="{StaticResource Primary}"
+                              VerticalOptions="Center" />
+                    <Label Text="Acepto los términos y condiciones"
+                           FontSize="14"
+                           TextColor="{StaticResource Primary}"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <Button Text="CREAR CUENTA"
+                        Style="{StaticResource PrimaryButton}"
+                        Clicked="OnRegisterClicked" />
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="4" Margin="0,0,0,24">
+                    <Label Text="¿Ya tienes cuenta?"
+                           FontSize="14"
+                           TextColor="{StaticResource TextSecondary}" />
+                    <Label Text="Inicia sesión"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource Primary}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnBackTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

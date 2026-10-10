@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SneakerStock.Views.AddSneakerPage"
+             Title="Nueva zapatilla"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource AppBackground}">
+
+    <Grid RowDefinitions="Auto,*" Padding="20" RowSpacing="18">
+
+        <Grid Grid.Row="0" ColumnDefinitions="Auto,*" ColumnSpacing="14">
+            <Button Grid.Column="0"
+                    Text="←"
+                    Style="{StaticResource StepButton}"
+                    VerticalOptions="Center"
+                    Clicked="OnCancelClicked" />
+            <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                <Label Text="Nueva zapatilla"
+                       FontSize="26"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource Primary}" />
+                <Label Text="Completa los datos del producto"
+                       FontSize="14"
+                       TextColor="{StaticResource TextSecondary}" />
+            </VerticalStackLayout>
+        </Grid>
+        
+        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout Spacing="16">
+
+                <Border Style="{StaticResource CardBorder}" Padding="16">
+                    <VerticalStackLayout Spacing="12">
+                        <Border BackgroundColor="{StaticResource FieldBackground}"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 16"
+                                HeightRequest="180"
+                                Padding="16">
+                            <Image x:Name="PreviewImage"
+                                   Source="sneaker.svg"
+                                   Aspect="AspectFit" />
+                        </Border>
+                        <Button Text="SELECCIONAR FOTO"
+                                Style="{StaticResource SecondaryButton}"
+                                Clicked="OnPickImageClicked" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Style="{StaticResource CardBorder}" Padding="20">
+                    <VerticalStackLayout Spacing="14">
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Modelo"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource TextSecondary}" />
+                            <Border Style="{StaticResource FieldBorder}">
+                                <Entry x:Name="ModelEntry"
+                                       Placeholder="Ej: Air Force 1"
+                                       PlaceholderColor="{StaticResource TextSecondary}"
+                                       TextColor="{StaticResource Primary}"
+                                       BackgroundColor="Transparent"
+                                       VerticalOptions="Center" />
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                            <VerticalStackLayout Grid.Column="0" Spacing="6">
+                                <Label Text="Talla"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource TextSecondary}" />
+                                <Border Style="{StaticResource FieldBorder}">
+                                    <Entry x:Name="SizeEntry"
+                                           Placeholder="Ej: 42"
+                                           Keyboard="Numeric"
+                                           PlaceholderColor="{StaticResource TextSecondary}"
+                                           TextColor="{StaticResource Primary}"
+                                           BackgroundColor="Transparent"
+                                           VerticalOptions="Center" />
+                                </Border>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Grid.Column="1" Spacing="6">
+                                <Label Text="Stock"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource TextSecondary}" />
+                                <Border Style="{StaticResource FieldBorder}">
+                                    <Entry x:Name="StockEntry"
+                                           Placeholder="Ej: 10"
+                                           Keyboard="Numeric"
+                                           PlaceholderColor="{StaticResource TextSecondary}"
+                                           TextColor="{StaticResource Primary}"
+                                           BackgroundColor="Transparent"
+                                           VerticalOptions="Center" />
+                                </Border>
+                            </VerticalStackLayout>
+                        </Grid>
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Precio"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource TextSecondary}" />
+                            <Border Style="{StaticResource FieldBorder}">
+                                <Entry x:Name="PriceEntry"
+                                       Placeholder="Ej: 450000"
+                                       Keyboard="Numeric"
+                                       PlaceholderColor="{StaticResource TextSecondary}"
+                                       TextColor="{StaticResource Primary}"
+                                       BackgroundColor="Transparent"
+                                       VerticalOptions="Center" />
+                            </Border>
+                        </VerticalStackLayout>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <Button Text="GUARDAR ZAPATILLA"
+                        Style="{StaticResource PrimaryButton}"
+                        Clicked="OnSaveClicked" />
+                <Button Text="CANCELAR"
+                        Style="{StaticResource SecondaryButton}"
+                        Margin="0,0,0,20"
+                        Clicked="OnCancelClicked" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
